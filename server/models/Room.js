@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 const DrawingCommandSchema = new mongoose.Schema({
-    type: {
-        type: String,
-        required: true
+    type: { 
+        type: String, 
+        required: true 
     },
-    data: {
-        type: Object,
-        required: true
+    data: { 
+        type: Object, 
+        required: true 
     },
     timestamp: { 
         type: Date, 

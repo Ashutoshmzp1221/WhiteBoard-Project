@@ -25,6 +25,6 @@ app.use(express.json());
 app.use('/api/rooms', roomRoutes);
 initializeSocket(io);
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
     console.log(`Server is started at port ${PORT}`);
 })

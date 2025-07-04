@@ -18,7 +18,7 @@ router.post('/join', async (req, res) => {
 router.get('/:roomId', async (req, res) => {
     const room = await Room.findOne({ roomId: req.params.roomId });
     if (!room) return res.status(404).json({ 
-        success: false,
+        // success: false,
         error: 'Room not found' 
     });
     res.json(room);

@@ -12,8 +12,8 @@ const initializeSocket = (io) => {
                 console.log(`Created new room: ${roomId}`);
             }
             socket.join(roomId);
-            socket.roomId = roomId;
-            socket.username = username;
+            socket.roomId = roomId; 
+            socket.username = username; 
             console.log(`${socket.id} (${username}) joined room: ${roomId}`);
 
             if (room.drawingData && room.drawingData.length > 0) {
@@ -30,7 +30,7 @@ const initializeSocket = (io) => {
                 id: socket.id,
                 x: data.x,
                 y: data.y,
-                user: socket.username
+                user: socket.username 
             });
         });
 
@@ -67,11 +67,9 @@ const initializeSocket = (io) => {
         socket.on('disconnect', async () => {
             console.log(`User disconnected: ${socket.id} (${socket.username || 'unknown'})`);
             if (socket.roomId) {
-                setTimeout(() => {
-                    const clientsInRoom = io.sockets.adapter.rooms.get(socket.roomId);
-                    const numUsers = clientsInRoom ? clientsInRoom.size : 0;
-                    io.to(socket.roomId).emit('user-count-update', numUsers);
-                }, 100);
+                const clientsInRoom = io.sockets.adapter.rooms.get(socket.roomId);
+                const numUsers = clientsInRoom ? clientsInRoom.size : 0;
+                io.to(socket.roomId).emit('user-count-update', numUsers);
             }
         });
     });

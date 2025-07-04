@@ -6,22 +6,22 @@ This application provides the following core functionalities:
 
 Room Management:
 
-  Users can join existing whiteboard rooms by entering a simple 6-8 character alphanumeric room code.
-  New rooms are dynamically created if a non-existing room code is entered.
-  No authentication or user registration is required, allowing for quick access.
-  Users enter a temporary username upon joining a room.
-  Drawing Functionality:
-  Single Tool: A versatile pencil/pen tool for freehand drawing.
-  Smooth Lines: Ensures a fluid and natural drawing experience.
-  Adjustable Stroke Width: A simple slider allows users to control the thickness of their lines.
-  Basic Color Selection: Choose from black, red, blue, and green.
-  Clear Canvas: An option to instantly clear all drawings from the whiteboard.
-  HTML5 Canvas: Utilizes the HTML5 Canvas element for drawing operations.
-  Live Collaboration:
-  Real-time Cursor Tracking: See the live cursor positions of all connected users in the room, with their usernames displayed next to their cursors.
-  Live Drawing Synchronization: All drawing actions (strokes, color changes, width adjustments, clear canvas) are instantly synchronized across all connected clients in the same room.
-  User Presence: A real-time display shows the number of active users currently in the room.
-  Connection Status: Visual indicator for WebSocket connection status.
+  - Users can join existing whiteboard rooms by entering a simple 6-8 character alphanumeric room code.
+  - New rooms are dynamically created if a non-existing room code is entered.
+  - No authentication or user registration is required, allowing for quick access.
+  - Users enter a temporary username upon joining a room.
+  - Drawing Functionality:
+  - Single Tool: A versatile pencil/pen tool for freehand drawing.
+  - Smooth Lines: Ensures a fluid and natural drawing experience.
+  - Adjustable Stroke Width: A simple slider allows users to control the thickness of their lines.
+  - Basic Color Selection: Choose from black, red, blue, and green.
+  - Clear Canvas: An option to instantly clear all drawings from the whiteboard.
+  - HTML5 Canvas: Utilizes the HTML5 Canvas element for drawing operations.
+  - Live Collaboration:
+  - Real-time Cursor Tracking: See the live cursor positions of all connected users in the room, with their usernames displayed next to their cursors.
+  - Live Drawing Synchronization: All drawing actions (strokes, color changes, width adjustments, clear canvas) are instantly synchronized across all connected clients in the same room.
+  - User Presence: A real-time display shows the number of active users currently in the room.
+  - Connection Status: Visual indicator for WebSocket connection status.
 
 🛠️ Technology Stack
 The project is built using the following technologies:

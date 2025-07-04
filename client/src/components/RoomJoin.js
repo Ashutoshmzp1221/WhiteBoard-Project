@@ -1,9 +1,11 @@
+
+
 import React, { useState } from 'react';
 import { RoomJoinContainer, JoinBox, Title, Input, Button, ErrorText } from '../styles/RoomJoinStyles';
 
 function RoomJoin({ onJoinRoom }) {
     const [roomCode, setRoomCode] = useState('');
-    const [username, setUsername] = useState('');
+    const [username, setUsername] = useState(''); 
     const [error, setError] = useState('');
 
     const handleSubmit = () => {
@@ -25,10 +27,10 @@ function RoomJoin({ onJoinRoom }) {
                 <Title>Join or Create Whiteboard</Title>
                 <Input
                     type="text"
-                    placeholder="Enter Username"
+                    placeholder="Enter Username" 
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
-                    maxLength={20}
+                    maxLength={20} 
                 />
                 <Input
                     type="text"

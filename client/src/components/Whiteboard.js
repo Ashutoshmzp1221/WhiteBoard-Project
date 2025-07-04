@@ -1,3 +1,4 @@
+// client/src/components/Whiteboard.js
 
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { WhiteboardContainer, UserCountDisplay, ConnectionStatus, StatusDot } from '../styles/WhiteboardStyles';
@@ -5,7 +6,7 @@ import DrawingCanvas from './DrawingCanvas';
 import Toolbar from './Toolbar';
 import UserCursors from './UserCursors';
 
-function Whiteboard({ roomId, socket, username }) {
+function Whiteboard({ roomId, socket, username }) { // Accept username prop
     const canvasRef = useRef(null);
     const [strokeWidth, setStrokeWidth] = useState(5);
     const [strokeColor, setStrokeColor] = useState('#000000');
@@ -41,10 +42,11 @@ function Whiteboard({ roomId, socket, username }) {
         socket.on('connect', onConnect);
         socket.on('disconnect', onDisconnect);
 
-        socket.on('cursor-move', ({ id, x, y, user }) => { 
+        // Update cursor-move to include username
+        socket.on('cursor-move', ({ id, x, y, user }) => { // Expect 'user' property
             setRemoteCursors((prev) => ({
                 ...prev,
-                [id]: { x, y, user, lastActivity: Date.now() }, 
+                [id]: { x, y, user, lastActivity: Date.now() }, // Store username
             }));
         });
 
@@ -129,10 +131,11 @@ function Whiteboard({ roomId, socket, username }) {
                 const rect = e.target.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
+                // Include username in cursor-move event
                 socket.emit('cursor-move', { x, y, user: username });
             }
         },
-        [socket, isConnected, username] 
+        [socket, isConnected, username] // Add username to dependency array
     );
 
     useEffect(() => {

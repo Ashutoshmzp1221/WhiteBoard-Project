@@ -1,5 +1,3 @@
-// client/src/App.js
-
 import React, { useState, useEffect } from 'react';
 import RoomJoin from './components/RoomJoin';
 import Whiteboard from './components/Whiteboard';
@@ -9,20 +7,18 @@ const socket = io('http://localhost:5000');
 
 function App() {
     const [roomId, setRoomId] = useState(null);
-    const [username, setUsername] = useState(null); // New state for username
+    const [username, setUsername] = useState(null); 
 
-    const handleJoinRoom = (code, user) => { // Updated to accept username
+    const handleJoinRoom = (code, user) => { 
         setRoomId(code);
-        setUsername(user); // Set username state
-        // Pass username to the 'join-room' event
+        setUsername(user); 
         socket.emit('join-room', { roomId: code, username: user });
     };
 
     useEffect(() => {
         socket.on('connect', () => {
             console.log('Connected to Socket.io server');
-            if (roomId && username) { // If already in a room and has a username
-                // Re-join room with username if already in one (e.g., after a reconnect)
+            if (roomId && username) { 
                 socket.emit('join-room', { roomId: roomId, username: username });
             }
         });
@@ -35,7 +31,7 @@ function App() {
             socket.off('connect');
             socket.off('disconnect');
         };
-    }, [roomId, username]); // Add username to dependency array
+    }, [roomId, username]);
 
 
     return (
@@ -43,7 +39,7 @@ function App() {
             {!roomId ? (
                 <RoomJoin onJoinRoom={handleJoinRoom} />
             ) : (
-                // Pass username to Whiteboard component as well
+                
                 <Whiteboard roomId={roomId} socket={socket} username={username} />
             )}
         </div>

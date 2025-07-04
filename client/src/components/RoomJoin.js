@@ -1,5 +1,3 @@
-
-
 import React, { useState } from 'react';
 import { RoomJoinContainer, JoinBox, Title, Input, Button, ErrorText } from '../styles/RoomJoinStyles';
 
